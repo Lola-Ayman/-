@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<form action="/searchcontact" method="POST" >
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Search">
+</form>
+
+<table style="border: 5px solid black ; padding: 10px; width: 100%;">
+    
+        {% for item in itmes %}
+        <tr style="border: 5px solid black;">
+            {% for field in item %}
+                <td style="border: 5px solid black; font-weight: bolder; font-style: italic; font-size: medium; color:blueviolet;"> {{ field }} </td>          
+            {% endfor %}
+
+
+        </tr>
+        {%endfor%}
+
+</table>
+
+
+
+
+
+{% endblock %}
